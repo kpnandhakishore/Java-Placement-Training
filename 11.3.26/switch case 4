@@ -1,0 +1,15 @@
+class Solution {
+    public String greatestLetter(String s) {
+        char max='0';
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(Character.isUpperCase(ch)){
+                if(Character.isUpperCase(ch)&&ch>max&&s.indexOf(Character.toLowerCase(ch))!=-1){
+                    max=s.charAt(i);
+                }
+            }
+        }
+        
+        return max=='0' ? "":String.valueOf(max);
+    }
+}
