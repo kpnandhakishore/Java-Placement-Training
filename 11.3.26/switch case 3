@@ -1,0 +1,36 @@
+class Solution 
+{
+    List<String>result = new ArrayList<>();
+
+    public List<String> letterCasePermutation(String s) 
+    {
+        backtrack(s.toCharArray(), 0);
+        return result;
+    }
+
+    void backtrack(char[] arr, int idx)
+    {
+        if(idx >= arr.length)
+        {
+            result.add(new String(arr));
+            return;
+        }
+
+        char ch = arr[idx];
+
+        if(Character.isLetter(ch))
+        {
+            arr[idx] = Character.toLowerCase(arr[idx]);
+            backtrack(arr, idx + 1);
+
+            arr[idx] = Character.toUpperCase(arr[idx]);
+            backtrack(arr, idx + 1);
+        }
+        else
+        {
+            backtrack(arr, idx + 1);
+        }
+
+        return;
+    }
+}
